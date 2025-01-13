@@ -111,7 +111,7 @@ if __name__ == "__main__":
                     beam_size = random.choice([1, 2, 3, 4, 5])
                     search_path = bfs(target, nums, beam_size, heuristic=heuristic)
 
-            else:
+            else:                
                 raise ValueError(f"Search type {args.search} not supported")
             if "Goal Reached" in search_path:
                 rating = 1. - simple_rating(search_path) / max_rating
@@ -120,8 +120,8 @@ if __name__ == "__main__":
                 rating = 0.
             if rating == 0.:
                 zero_count += 1
-
-            search_type = search.__name__
+            
+            search_type = args.search
             if search_type == "bfs":
                 search_type += f"_{beam_size}"
 
